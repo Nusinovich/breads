@@ -5,8 +5,14 @@ const Bread = require('../models/bread.js')
 
 //will create new page when entering http://localhost:3003/breads
 breads.get('/', (req, res)=>{
-    res.send('This is the index at /breads')
+    res.render('Index', 
+    {
+        breads: Bread
+    }
+  )
 })
+
+
 
 //Will show the bread based on the array in ./models/bread.js
 breads.get('/:arrayIndex', (req, res)=>{

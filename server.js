@@ -6,6 +6,12 @@ require('dotenv').config()
 const port = process.env.port
 const app = express()
 
+// MIDDLEWARE
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
+
 // ROUTES configration to port 3003
 app.get('/', (req, res)=>{
     res.send('Welcome to an Awesome App about Breads!')
