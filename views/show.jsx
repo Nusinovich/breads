@@ -5,13 +5,12 @@ function Show ({bread}) {
   console.log(bread.name)
     return (
      <Default>
-        <h3>{bread.name}</h3>
+        <h2>{bread.name}</h2>
         <p>
-          and it
           {
             bread.hasGluten
-            ? <span> does </span>
-            : <span> does NOT </span>
+            ? <span> Does </span>
+            : <span> Does NOT </span>
           }
           have gluten.
         </p>
