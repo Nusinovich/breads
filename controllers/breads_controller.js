@@ -35,8 +35,8 @@ breads.get('/:id', (req, res) => {
       bread: foundBreads
      })
     })
-    .catch(err => {
-      res.send('404')
+    .catch(Error => {
+      res.send('<h1>404: wrong page</h1>')
     })
   })
 
