@@ -32,9 +32,9 @@ breads.get('/:id/edit', express.urlencoded({ extended: true }), (req, res) => {
 // SHOW Route
 breads.get('/:id', express.urlencoded({ extended: true }), (req, res) => {
   Bread.findById(req.params.id)
-  .then(foundBreads =>{
+  .then(foundBreads => {
     res.render('show', {
-      bread: foundBreads
+      bread: foundBreads 
      })
     })
     .catch(Error => {
