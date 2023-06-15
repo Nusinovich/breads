@@ -27,10 +27,14 @@ breads.get('/new', (req, res) => {
 
 // EDIT
 breads.get('/:id/edit', express.urlencoded({ extended: true }), (req, res) => {
-  Bread.findById(req.params.id)
-  .then(foundBreads =>{
-    res.render('edit', {
-      bread: foundBreads
+  Baker.find()
+  .then(foundBakers => {
+    Bread.findById(req.params.id)
+    .then(foundBreads =>{
+      res.render('edit', {
+        bread: foundBreads,
+        bakers:foundBakers
+      })
     })
   })
 })
@@ -39,6 +43,7 @@ breads.get('/:id/edit', express.urlencoded({ extended: true }), (req, res) => {
 // SHOW Route
 breads.get('/:id', express.urlencoded({ extended: true }), (req, res) => {
   Bread.findById(req.params.id)
+  .populate('baker')
   .then(foundBreads => {
     res.render('show', {
       bread: foundBreads 
