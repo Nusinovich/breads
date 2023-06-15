@@ -30,7 +30,11 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 
-  
+
+//Bakers
+const bakersController = require('./controllers/bakers_controller.js')
+app.use('/bakers', bakersController)
+
 // 404 Page
 app.get('*', (req, res) => {
     res.send('404')
