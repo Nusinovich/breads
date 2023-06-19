@@ -1,16 +1,18 @@
 const React = require('react')
 const Default = require('./layouts/default')
 
-function Index({ breads, bakers, title }) {
+function Index({bakers, breads, id }) {
     return (
-      <Default title={title}>
+      <Default>
         <h2>Index Page</h2>
         <h3>Bakers</h3>
+      {/* need to fix*/}
         <ul>
-          {bakers.map((baker) => {
+          {
+            bakers.map((baker) => {
             return (
-              <li key={baker.id}>
-                <a href={`/bakers/${baker.id}`}>{baker.name}</a>
+              <li key={baker._id}>
+                <a href={`/bakers/${baker._id}`}>{baker.name}</a>
               </li>
             )
           })}
