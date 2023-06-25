@@ -18,12 +18,12 @@ app.get('/', (req, res) => {
 
 // Breads/middleware:
 app.set('views', __dirname + '/views')
-app.use(methodOverride('_method'))
-app.use('/breads', breadsController)
+app.set('view engine', 'jsx')
+//app.use('/breads', breadsController)
+app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}))
-app.set('view engine', 'jsx')
-app.engine('jsx', require('express-react-views').createEngine())
+app.use(methodOverride('_method'))
 
 
 //Bakers
